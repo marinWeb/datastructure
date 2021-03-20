@@ -44,7 +44,7 @@ class Graph{
         var visitedVtxs = {};
         var self = this;
 
-        function 
+        //I don't know how to implement BFS 
     }
 }
 
