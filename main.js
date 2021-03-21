@@ -44,7 +44,29 @@ class Graph{
         var visitedVtxs = {};
         var self = this;
 
-        //I don't know how to implement BFS 
+        //I finallly got through BFS :)
+        var vertexs = [];
+        vertexs.push(start);
+
+        function BFSHelper(vtx){
+            if(!self.adjacencyList[vtx])    return ;
+
+            visitedVtxs[vtx] = true;
+
+            resultLst.push(vtx);
+
+            self.adjacencyList[vtx].forEach(function(itm){
+                if(!visitedVtxs[itm] && vertexs.indexOf(itm) == -1){
+                    vertexs.push(itm);
+                }
+            });
+
+            BFSHelper(vertexs.shift());
+        }
+
+        BFSHelper(vertexs.shift());
+
+        return resultLst;
     }
 }
 
